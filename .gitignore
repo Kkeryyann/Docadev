@@ -26,3 +26,7 @@ logs
 //generated/prisma
 
 //generated/prisma
+
+# Upload folder
+public/uploads/*
+!public/uploads/.gitkeep

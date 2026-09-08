@@ -77,8 +77,7 @@ export const RessourceScalarFieldEnum = {
   type: 'type',
   description: 'description',
   lien: 'lien',
-  source: 'source',
-  sourceAutrePrecision: 'sourceAutrePrecision',
+  image: 'image',
   statut: 'statut',
   dateAjout: 'dateAjout'
 } as const

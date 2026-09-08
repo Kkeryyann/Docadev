@@ -10,25 +10,16 @@
 */
 
 export const TypeRessource = {
-  librairie: 'librairie',
+  animation: 'animation',
   apprentissage: 'apprentissage',
-  illustration: 'illustration',
-  idee_projet: 'idee_projet'
+  dev: 'dev',
+  idee_projet: 'idee_projet',
+  inspiration: 'inspiration',
+  typographie: 'typographie',
+  visuel: 'visuel'
 } as const
 
 export type TypeRessource = (typeof TypeRessource)[keyof typeof TypeRessource]
-
-
-export const SourceRessource = {
-  recherches: 'recherches',
-  instagram: 'instagram',
-  tiktok: 'tiktok',
-  youtube: 'youtube',
-  github: 'github',
-  autre: 'autre'
-} as const
-
-export type SourceRessource = (typeof SourceRessource)[keyof typeof SourceRessource]
 
 
 export const StatutRessource = {

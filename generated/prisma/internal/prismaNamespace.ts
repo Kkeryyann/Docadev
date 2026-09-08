@@ -611,8 +611,7 @@ export const RessourceScalarFieldEnum = {
   type: 'type',
   description: 'description',
   lien: 'lien',
-  source: 'source',
-  sourceAutrePrecision: 'sourceAutrePrecision',
+  image: 'image',
   statut: 'statut',
   dateAjout: 'dateAjout'
 } as const
@@ -698,20 +697,6 @@ export type EnumTypeRessourceFieldRefInput<$PrismaModel> = FieldRefInputType<$Pr
  * Reference to a field of type 'TypeRessource[]'
  */
 export type ListEnumTypeRessourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TypeRessource[]'>
-    
-
-
-/**
- * Reference to a field of type 'SourceRessource'
- */
-export type EnumSourceRessourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourceRessource'>
-    
-
-
-/**
- * Reference to a field of type 'SourceRessource[]'
- */
-export type ListEnumSourceRessourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SourceRessource[]'>
     
 
 

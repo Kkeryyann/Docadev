@@ -13,19 +13,13 @@ datasource db {
 }
 
 enum TypeRessource {
-  librairie
+  animation
   apprentissage
-  illustration
+  dev
   idee_projet
-}
-
-enum SourceRessource {
-  recherches
-  instagram
-  tiktok
-  youtube
-  github
-  autre
+  inspiration
+  typographie
+  visuel
 }
 
 enum StatutRessource {
@@ -38,10 +32,9 @@ model Ressource {
   id                   Int               @id @default(autoincrement())
   titre                String
   type                 TypeRessource
-  description          String
-  lien                 String?
-  source               SourceRessource
-  sourceAutrePrecision String?
+  description          String?
+  lien                 String
+  image                String?
   statut               StatutRessource @default(en_attente)
   dateAjout            DateTime         @default(now())
 }

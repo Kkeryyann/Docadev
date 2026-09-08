@@ -40,8 +40,7 @@ export type RessourceMinAggregateOutputType = {
   type: $Enums.TypeRessource | null
   description: string | null
   lien: string | null
-  source: $Enums.SourceRessource | null
-  sourceAutrePrecision: string | null
+  image: string | null
   statut: $Enums.StatutRessource | null
   dateAjout: Date | null
 }
@@ -52,8 +51,7 @@ export type RessourceMaxAggregateOutputType = {
   type: $Enums.TypeRessource | null
   description: string | null
   lien: string | null
-  source: $Enums.SourceRessource | null
-  sourceAutrePrecision: string | null
+  image: string | null
   statut: $Enums.StatutRessource | null
   dateAjout: Date | null
 }
@@ -64,8 +62,7 @@ export type RessourceCountAggregateOutputType = {
   type: number
   description: number
   lien: number
-  source: number
-  sourceAutrePrecision: number
+  image: number
   statut: number
   dateAjout: number
   _all: number
@@ -86,8 +83,7 @@ export type RessourceMinAggregateInputType = {
   type?: true
   description?: true
   lien?: true
-  source?: true
-  sourceAutrePrecision?: true
+  image?: true
   statut?: true
   dateAjout?: true
 }
@@ -98,8 +94,7 @@ export type RessourceMaxAggregateInputType = {
   type?: true
   description?: true
   lien?: true
-  source?: true
-  sourceAutrePrecision?: true
+  image?: true
   statut?: true
   dateAjout?: true
 }
@@ -110,8 +105,7 @@ export type RessourceCountAggregateInputType = {
   type?: true
   description?: true
   lien?: true
-  source?: true
-  sourceAutrePrecision?: true
+  image?: true
   statut?: true
   dateAjout?: true
   _all?: true
@@ -207,10 +201,9 @@ export type RessourceGroupByOutputType = {
   id: number
   titre: string
   type: $Enums.TypeRessource
-  description: string
-  lien: string | null
-  source: $Enums.SourceRessource
-  sourceAutrePrecision: string | null
+  description: string | null
+  lien: string
+  image: string | null
   statut: $Enums.StatutRessource
   dateAjout: Date
   _count: RessourceCountAggregateOutputType | null
@@ -242,10 +235,9 @@ export type RessourceWhereInput = {
   id?: Prisma.IntFilter<"Ressource"> | number
   titre?: Prisma.StringFilter<"Ressource"> | string
   type?: Prisma.EnumTypeRessourceFilter<"Ressource"> | $Enums.TypeRessource
-  description?: Prisma.StringFilter<"Ressource"> | string
-  lien?: Prisma.StringNullableFilter<"Ressource"> | string | null
-  source?: Prisma.EnumSourceRessourceFilter<"Ressource"> | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.StringNullableFilter<"Ressource"> | string | null
+  description?: Prisma.StringNullableFilter<"Ressource"> | string | null
+  lien?: Prisma.StringFilter<"Ressource"> | string
+  image?: Prisma.StringNullableFilter<"Ressource"> | string | null
   statut?: Prisma.EnumStatutRessourceFilter<"Ressource"> | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFilter<"Ressource"> | Date | string
 }
@@ -254,10 +246,9 @@ export type RessourceOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   titre?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  lien?: Prisma.SortOrderInput | Prisma.SortOrder
-  source?: Prisma.SortOrder
-  sourceAutrePrecision?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  lien?: Prisma.SortOrder
+  image?: Prisma.SortOrderInput | Prisma.SortOrder
   statut?: Prisma.SortOrder
   dateAjout?: Prisma.SortOrder
 }
@@ -269,10 +260,9 @@ export type RessourceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.RessourceWhereInput | Prisma.RessourceWhereInput[]
   titre?: Prisma.StringFilter<"Ressource"> | string
   type?: Prisma.EnumTypeRessourceFilter<"Ressource"> | $Enums.TypeRessource
-  description?: Prisma.StringFilter<"Ressource"> | string
-  lien?: Prisma.StringNullableFilter<"Ressource"> | string | null
-  source?: Prisma.EnumSourceRessourceFilter<"Ressource"> | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.StringNullableFilter<"Ressource"> | string | null
+  description?: Prisma.StringNullableFilter<"Ressource"> | string | null
+  lien?: Prisma.StringFilter<"Ressource"> | string
+  image?: Prisma.StringNullableFilter<"Ressource"> | string | null
   statut?: Prisma.EnumStatutRessourceFilter<"Ressource"> | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFilter<"Ressource"> | Date | string
 }, "id">
@@ -281,10 +271,9 @@ export type RessourceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   titre?: Prisma.SortOrder
   type?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  lien?: Prisma.SortOrderInput | Prisma.SortOrder
-  source?: Prisma.SortOrder
-  sourceAutrePrecision?: Prisma.SortOrderInput | Prisma.SortOrder
+  description?: Prisma.SortOrderInput | Prisma.SortOrder
+  lien?: Prisma.SortOrder
+  image?: Prisma.SortOrderInput | Prisma.SortOrder
   statut?: Prisma.SortOrder
   dateAjout?: Prisma.SortOrder
   _count?: Prisma.RessourceCountOrderByAggregateInput
@@ -301,10 +290,9 @@ export type RessourceScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"Ressource"> | number
   titre?: Prisma.StringWithAggregatesFilter<"Ressource"> | string
   type?: Prisma.EnumTypeRessourceWithAggregatesFilter<"Ressource"> | $Enums.TypeRessource
-  description?: Prisma.StringWithAggregatesFilter<"Ressource"> | string
-  lien?: Prisma.StringNullableWithAggregatesFilter<"Ressource"> | string | null
-  source?: Prisma.EnumSourceRessourceWithAggregatesFilter<"Ressource"> | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.StringNullableWithAggregatesFilter<"Ressource"> | string | null
+  description?: Prisma.StringNullableWithAggregatesFilter<"Ressource"> | string | null
+  lien?: Prisma.StringWithAggregatesFilter<"Ressource"> | string
+  image?: Prisma.StringNullableWithAggregatesFilter<"Ressource"> | string | null
   statut?: Prisma.EnumStatutRessourceWithAggregatesFilter<"Ressource"> | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeWithAggregatesFilter<"Ressource"> | Date | string
 }
@@ -312,10 +300,9 @@ export type RessourceScalarWhereWithAggregatesInput = {
 export type RessourceCreateInput = {
   titre: string
   type: $Enums.TypeRessource
-  description: string
-  lien?: string | null
-  source: $Enums.SourceRessource
-  sourceAutrePrecision?: string | null
+  description?: string | null
+  lien: string
+  image?: string | null
   statut?: $Enums.StatutRessource
   dateAjout?: Date | string
 }
@@ -324,10 +311,9 @@ export type RessourceUncheckedCreateInput = {
   id?: number
   titre: string
   type: $Enums.TypeRessource
-  description: string
-  lien?: string | null
-  source: $Enums.SourceRessource
-  sourceAutrePrecision?: string | null
+  description?: string | null
+  lien: string
+  image?: string | null
   statut?: $Enums.StatutRessource
   dateAjout?: Date | string
 }
@@ -335,10 +321,9 @@ export type RessourceUncheckedCreateInput = {
 export type RessourceUpdateInput = {
   titre?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumTypeRessourceFieldUpdateOperationsInput | $Enums.TypeRessource
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  lien?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source?: Prisma.EnumSourceRessourceFieldUpdateOperationsInput | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lien?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   statut?: Prisma.EnumStatutRessourceFieldUpdateOperationsInput | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -347,10 +332,9 @@ export type RessourceUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   titre?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumTypeRessourceFieldUpdateOperationsInput | $Enums.TypeRessource
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  lien?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source?: Prisma.EnumSourceRessourceFieldUpdateOperationsInput | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lien?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   statut?: Prisma.EnumStatutRessourceFieldUpdateOperationsInput | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -359,10 +343,9 @@ export type RessourceCreateManyInput = {
   id?: number
   titre: string
   type: $Enums.TypeRessource
-  description: string
-  lien?: string | null
-  source: $Enums.SourceRessource
-  sourceAutrePrecision?: string | null
+  description?: string | null
+  lien: string
+  image?: string | null
   statut?: $Enums.StatutRessource
   dateAjout?: Date | string
 }
@@ -370,10 +353,9 @@ export type RessourceCreateManyInput = {
 export type RessourceUpdateManyMutationInput = {
   titre?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumTypeRessourceFieldUpdateOperationsInput | $Enums.TypeRessource
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  lien?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source?: Prisma.EnumSourceRessourceFieldUpdateOperationsInput | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lien?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   statut?: Prisma.EnumStatutRessourceFieldUpdateOperationsInput | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -382,10 +364,9 @@ export type RessourceUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   titre?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumTypeRessourceFieldUpdateOperationsInput | $Enums.TypeRessource
-  description?: Prisma.StringFieldUpdateOperationsInput | string
-  lien?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source?: Prisma.EnumSourceRessourceFieldUpdateOperationsInput | $Enums.SourceRessource
-  sourceAutrePrecision?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lien?: Prisma.StringFieldUpdateOperationsInput | string
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   statut?: Prisma.EnumStatutRessourceFieldUpdateOperationsInput | $Enums.StatutRessource
   dateAjout?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -396,8 +377,7 @@ export type RessourceCountOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   lien?: Prisma.SortOrder
-  source?: Prisma.SortOrder
-  sourceAutrePrecision?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   statut?: Prisma.SortOrder
   dateAjout?: Prisma.SortOrder
 }
@@ -412,8 +392,7 @@ export type RessourceMaxOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   lien?: Prisma.SortOrder
-  source?: Prisma.SortOrder
-  sourceAutrePrecision?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   statut?: Prisma.SortOrder
   dateAjout?: Prisma.SortOrder
 }
@@ -424,8 +403,7 @@ export type RessourceMinOrderByAggregateInput = {
   type?: Prisma.SortOrder
   description?: Prisma.SortOrder
   lien?: Prisma.SortOrder
-  source?: Prisma.SortOrder
-  sourceAutrePrecision?: Prisma.SortOrder
+  image?: Prisma.SortOrder
   statut?: Prisma.SortOrder
   dateAjout?: Prisma.SortOrder
 }
@@ -444,10 +422,6 @@ export type EnumTypeRessourceFieldUpdateOperationsInput = {
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
-}
-
-export type EnumSourceRessourceFieldUpdateOperationsInput = {
-  set?: $Enums.SourceRessource
 }
 
 export type EnumStatutRessourceFieldUpdateOperationsInput = {
@@ -474,8 +448,7 @@ export type RessourceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   type?: boolean
   description?: boolean
   lien?: boolean
-  source?: boolean
-  sourceAutrePrecision?: boolean
+  image?: boolean
   statut?: boolean
   dateAjout?: boolean
 }, ExtArgs["result"]["ressource"]>
@@ -486,8 +459,7 @@ export type RessourceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   type?: boolean
   description?: boolean
   lien?: boolean
-  source?: boolean
-  sourceAutrePrecision?: boolean
+  image?: boolean
   statut?: boolean
   dateAjout?: boolean
 }, ExtArgs["result"]["ressource"]>
@@ -498,8 +470,7 @@ export type RessourceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   type?: boolean
   description?: boolean
   lien?: boolean
-  source?: boolean
-  sourceAutrePrecision?: boolean
+  image?: boolean
   statut?: boolean
   dateAjout?: boolean
 }, ExtArgs["result"]["ressource"]>
@@ -510,13 +481,12 @@ export type RessourceSelectScalar = {
   type?: boolean
   description?: boolean
   lien?: boolean
-  source?: boolean
-  sourceAutrePrecision?: boolean
+  image?: boolean
   statut?: boolean
   dateAjout?: boolean
 }
 
-export type RessourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titre" | "type" | "description" | "lien" | "source" | "sourceAutrePrecision" | "statut" | "dateAjout", ExtArgs["result"]["ressource"]>
+export type RessourceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titre" | "type" | "description" | "lien" | "image" | "statut" | "dateAjout", ExtArgs["result"]["ressource"]>
 
 export type $RessourcePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Ressource"
@@ -525,10 +495,9 @@ export type $RessourcePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     id: number
     titre: string
     type: $Enums.TypeRessource
-    description: string
-    lien: string | null
-    source: $Enums.SourceRessource
-    sourceAutrePrecision: string | null
+    description: string | null
+    lien: string
+    image: string | null
     statut: $Enums.StatutRessource
     dateAjout: Date
   }, ExtArgs["result"]["ressource"]>
@@ -959,8 +928,7 @@ export interface RessourceFieldRefs {
   readonly type: Prisma.FieldRef<"Ressource", 'TypeRessource'>
   readonly description: Prisma.FieldRef<"Ressource", 'String'>
   readonly lien: Prisma.FieldRef<"Ressource", 'String'>
-  readonly source: Prisma.FieldRef<"Ressource", 'SourceRessource'>
-  readonly sourceAutrePrecision: Prisma.FieldRef<"Ressource", 'String'>
+  readonly image: Prisma.FieldRef<"Ressource", 'String'>
   readonly statut: Prisma.FieldRef<"Ressource", 'StatutRessource'>
   readonly dateAjout: Prisma.FieldRef<"Ressource", 'DateTime'>
 }
