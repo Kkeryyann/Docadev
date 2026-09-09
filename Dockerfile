@@ -46,6 +46,10 @@ RUN npm ci --omit=dev
 # Génération du client Prisma pour l'environnement de production
 RUN npx prisma generate
 
+# Récupère la variable en tant que build argument et la fixe en ENV runtime
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
+
 # Définition des variables d'environnement nécessaires pour Nuxt/Nitro dans Docker
 ENV NODE_ENV=production
 ENV PORT=3000
@@ -56,4 +60,4 @@ EXPOSE 3000
 # Commande de démarrage :
 # 1. Applique les migrations Prisma en attente sur la base de données de prod
 # 2. Démarre le serveur Nuxt
-CMD ["sh", "-c", "echo '--- DEBUG ---'; echo 'Shell env:'; echo DATABASE_URL=$DATABASE_URL; echo '--- .env file check ---'; ls -la /app/.env 2>&1; echo '--- .env content (masked) ---'; sed 's/:[^:@]*@/:****@/' /app/.env 2>/dev/null || echo 'NO .env FILE'; echo '--- Node + dotenv test ---'; node -e \"require('dotenv').config(); console.log('DATABASE_URL via dotenv:', process.env.DATABASE_URL ? 'SET (' + process.env.DATABASE_URL.replace(/:[^:@]*@/, ':****@') + ')' : 'EMPTY')\"; echo '-------------'; npx prisma migrate deploy && node .output/server/index.mjs"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node .output/server/index.mjs"]
