@@ -19,7 +19,10 @@ export default defineEventHandler(async (event) => {
         throw createError({ statusCode: 400, message: 'Type de fichier non autorisé.' })
     }
 
-    const dossier = join(process.cwd(), 'public', 'uploads')
+    const isProd = process.env.NODE_ENV === 'production'
+    const baseFolder = isProd ? join('.output', 'public', 'uploads') : join('public', 'uploads')
+    const dossier = join(process.cwd(), baseFolder)
+
     await mkdir(dossier, { recursive: true })
 
     const nomFichier = `${randomUUID()}${extension}`
