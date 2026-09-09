@@ -26,7 +26,7 @@ RUN npm run build
 # ==========================================
 # Étape 2 : Production (Runner)
 # ==========================================
-FROM node:20-alpine
+FROM node:22-alpine
 
 # Ajout d'OpenSSL pour l'environnement d'exécution de Prisma
 RUN apk update && apk add --no-cache openssl
