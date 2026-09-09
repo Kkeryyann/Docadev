@@ -36,6 +36,7 @@ WORKDIR /app
 # Copie des fichiers générés depuis l'étape précédente
 COPY --from=builder /app/.output ./.output
 COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/package-lock.json ./
 
