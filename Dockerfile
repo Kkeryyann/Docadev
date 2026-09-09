@@ -56,4 +56,4 @@ EXPOSE 3000
 # Commande de démarrage :
 # 1. Applique les migrations Prisma en attente sur la base de données de prod
 # 2. Démarre le serveur Nuxt
-CMD ["sh", "-c", "npx prisma migrate deploy && node .output/server/index.mjs"]
+CMD ["sh", "-c", "echo '--- DEBUG ---' && echo DATABASE_URL=$DATABASE_URL && env | grep -i DATABASE && echo '-------------' && npx prisma migrate deploy && node .output/server/index.mjs"]
