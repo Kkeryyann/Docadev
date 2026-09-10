@@ -24,7 +24,7 @@ async function copier(hex) {
 
 <template>
   <div class="min-h-screen px-4 py-12 sm:px-8 md:py-16">
-    <div class="mx-auto max-w-3xl">
+    <div class="mx-auto max-w-3xl pt-24">
       <header class="mb-12 text-center sm:mb-16">
         <p class="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-lime">Palette</p>
         <h1 class="text-3xl font-bold text-white sm:text-4xl">Alternatives aux couleurs pures</h1>

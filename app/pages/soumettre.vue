@@ -43,27 +43,23 @@ async function soumettre() {
 </script>
 
 <template>
-  <div class="w-full justify-center items-center px-8 py-4">
+  <div class="w-full justify-center items-center px-8 pt-24">
     <NuxtLink to="/" class="absolute text-sm text-white hover:text-lime p-2 inline-block">← Retour</NuxtLink>
     <h1 class="text-4xl font-bold text-center">Soumettre une nouvelle ressource</h1>
     <p class="text-sm text-gray-500 my-4 text-center">
       Votre proposition sera vérifiée puis, si elle est validée, elle apparaîtra sur le site.
     </p>
 
-    <div v-if="succes" class="bg-green-50 border border-green-200 text-green-700 rounded p-4 mb-4">
-      Merci ! Ta trouvaille est en attente de validation.
-    </div>
-
     <BorderGlow class="w-1/2 p-8 mx-auto"
-        :edge-sensitivity="30"
-        glow-color="40 80 80"
-        background-color="#121212"
-        :border-radius="16"
-        :glow-radius="40"
-        :glow-intensity="1.0"
-        :cone-spread="25"
-        :animated="true"
-        :colors="['#B6FF00']"
+                :edge-sensitivity="30"
+                glow-color="40 80 80"
+                background-color="#121212"
+                :border-radius="16"
+                :glow-radius="40"
+                :glow-intensity="1.0"
+                :cone-spread="25"
+                :animated="true"
+                :colors="['#B6FF00']"
     >
       <form @submit.prevent="soumettre" class="space-y-4">
         <div>
@@ -106,6 +102,49 @@ async function soumettre() {
         </button>
       </form>
     </BorderGlow>
+
+    <!-- Pop-up de confirmation -->
+    <Teleport to="body">
+      <Transition
+          enter-active-class="transition duration-200 ease-out"
+          enter-from-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="transition duration-150 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+      >
+        <div v-if="succes" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+          <Transition
+              appear
+              enter-active-class="transition duration-200 ease-out"
+              enter-from-class="opacity-0 scale-95"
+              enter-to-class="opacity-100 scale-100"
+              leave-active-class="transition duration-150 ease-in"
+              leave-from-class="opacity-100 scale-100"
+              leave-to-class="opacity-0 scale-95"
+          >
+            <div class="w-full max-w-sm rounded-2xl border border-white/10 bg-black p-8 text-center shadow-2xl">
+              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[#1C1C1C]">
+                <svg class="h-6 w-6 text-lime" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 10.5L8 14.5L16 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h2 class="text-lg font-semibold text-white">Merci !</h2>
+              <p class="mt-2 text-sm text-white/60">
+                Ta trouvaille est en attente de validation. Elle apparaîtra sur le site une fois vérifiée.
+              </p>
+              <button
+                  type="button"
+                  @click="succes = false"
+                  class="mt-6 w-full rounded bg-lime p-2 font-medium text-black transition hover:bg-lime-600 cursor-pointer"
+              >
+                Fermer
+              </button>
+            </div>
+          </Transition>
+        </div>
+      </Transition>
+    </Teleport>
   </div>
 </template>
 <style scoped>

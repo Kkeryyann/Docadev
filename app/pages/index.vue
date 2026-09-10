@@ -43,7 +43,45 @@ function tronquer(texte, longueur = 90) {
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto p-8">
+  <section class="relative min-h-screen flex items-center justify-center border-b border-white/10 px-4 py-16 sm:px-8">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl font-bold text-[#f5f5f5] sm:text-4xl md:text-5xl">
+        Toutes les trouvailles dev, <span class="text-lime">au même endroit</span>
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base">
+        Libs, apprentissages, illustrations, idées de projets... DocADev centralise des
+        ressources jugées pertinantes pour les développeurs, partagées par la communauté et validées avant
+        publication. Trouve une pépite ou propose la tienne.
+      </p>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <NuxtLink
+            to="/soumettre"
+            class="text-sm font-medium px-5 py-2.5 rounded bg-lime text-black hover:bg-lime-600 transition"
+        >
+          Proposer une ressource
+        </NuxtLink>
+
+        <a href="#ressources"
+        class="text-sm font-medium px-5 py-2.5 rounded border border-white/15 text-white/80 hover:border-lime hover:text-lime transition"
+        >
+        Voir les ressources
+        </a>
+      </div>
+    </div>
+
+
+    <a href="#ressources"
+    aria-label="Défiler vers les ressources"
+    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-lime transition animate-bounce"
+    >
+    <span class="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    </a>
+  </section>
+
+  <div class="max-w-6xl mx-auto p-8 pt-24" id="ressources">
     <div class="flex justify-between items-center mb-6">
       <h1 class="text-2xl font-bold">Ressources</h1>
     </div>
