@@ -26,7 +26,7 @@ function changerFiltre(type) {
 
 function changerPage(nouvellePage) {
   page.value = nouvellePage
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  document.getElementById('ressources')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 function estNouveau(dateAjout) {
@@ -46,7 +46,7 @@ function tronquer(texte, longueur = 90) {
   <section class="relative min-h-screen flex items-center justify-center border-b border-white/10 px-4 py-16 sm:px-8">
     <div class="max-w-6xl mx-auto text-center">
       <h1 class="text-3xl font-bold text-[#f5f5f5] sm:text-4xl md:text-5xl">
-        Toutes les trouvailles dev, <span class="text-lime">au même endroit</span>
+        Toutes les trouvailles dev <span class="text-lime">au même endroit</span>
       </h1>
       <p class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base">
         Libs, apprentissages, illustrations, idées de projets... DocADev centralise des
