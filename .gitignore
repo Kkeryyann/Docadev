@@ -30,3 +30,5 @@ logs
 # Upload folder
 public/uploads/*
 !public/uploads/.gitkeep
+
+dump_docadev.sql
